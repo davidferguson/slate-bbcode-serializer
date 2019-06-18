@@ -29,6 +29,10 @@ class Deserializer {
       enableEscapeTags: true
     })
 
+    // first, do a bit of cleanup by merging all neighbouring text nodes together
+    this.mergeText(res)
+    console.log(JSON.stringify(res))
+
     // convert the bbcode AST to the slatejs syntax tree, and remove all top-level non-block nodes
     let nodes = this.deserializeElements(res)
     nodes = nodes.filter(node => node.object === 'block')
@@ -45,6 +49,28 @@ class Deserializer {
       }
     }
     return tree
+  }
+
+
+  mergeText = tree => {
+    let i = 0
+    while (true) {
+      if (i >= tree.length) {
+        break
+      }
+
+      if (typeof tree[i] === 'string' && typeof tree[i+1] === 'string') {
+        tree[i] += tree[i+1]
+        tree.splice(i+1, 1)
+        continue
+      }
+
+      if (tree[i].content) {
+        this.mergeText(tree[i].content)
+      }
+
+      i++
+    }
   }
 
 

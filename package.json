@@ -1,6 +1,6 @@
 {
   "name": "slate-bbcode-serializer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A BBCode serializer/deserializer for Slate editors.",
   "main": "lib/index.js",
   "scripts": {
