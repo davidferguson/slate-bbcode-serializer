@@ -1,0 +1,38 @@
+{
+  "name": "slate-bbcode-serializer",
+  "version": "0.1.0",
+  "description": "A BBCode serializer/deserializer for Slate editors.",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "npm build",
+    "build": "babel src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Ferguson",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidferguson/slate-bbcode-serializer.git"
+  },
+  "peerDependencies": {
+    "immutable": ">=3.0.0",
+    "slate": ">=0.34.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0"
+  },
+  "dependencies": {
+    "@babel/node": "^7.4.5",
+    "@bbob/parser": "^2.5.1",
+    "immutable": "^4.0.0-rc.12",
+    "katex": "^0.10.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "slate": "^0.34.0",
+    "type-of": "^2.0.1"
+  }
+}
