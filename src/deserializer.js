@@ -31,7 +31,6 @@ class Deserializer {
 
     // first, do a bit of cleanup by merging all neighbouring text nodes together
     this.mergeText(res)
-    console.log(JSON.stringify(res))
 
     // convert the bbcode AST to the slatejs syntax tree, and remove all top-level non-block nodes
     let nodes = this.deserializeElements(res)
