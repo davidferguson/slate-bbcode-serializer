@@ -22,7 +22,7 @@ class Deserializer {
   }
 
 
-  deserialize = (value) => {
+  deserialize = (value, options) => {
     // create the AST from the bbcode
     let res = parse(value, {
       onlyAllowTags: this.allowedTags,
@@ -32,9 +32,16 @@ class Deserializer {
     // first, do a bit of cleanup by merging all neighbouring text nodes together
     this.mergeText(res)
 
-    // convert the bbcode AST to the slatejs syntax tree, and remove all top-level non-block nodes
+    // convert the bbcode AST to the slatejs syntax tree
     let nodes = this.deserializeElements(res)
-    nodes = nodes.filter(node => node.object === 'block')
+
+    // remove all top-level non-block nodes, if requested to (which is the default)
+    const {type} = options
+    if (type === 'block') {
+      nodes = nodes.filter(node => node.object === 'block')
+    } else {
+      nodes = nodes.filter(node => node.object !== 'block')
+    }
 
     // plop it into a slate document object, and return
     let tree = {

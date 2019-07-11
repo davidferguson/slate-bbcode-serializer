@@ -39,7 +39,7 @@ class Serializer {
    * @return {String|Array}
    */
 
-  serialize = (value, options = {}) => {
+  serialize = (value, options) => {
     const { document } = value
     const elements = document.nodes.map(this.serializeNode)
 

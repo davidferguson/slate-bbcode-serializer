@@ -44,12 +44,12 @@ class BBCode {
     this.deserializer = new Deserializer(this.rules, allowedTags)
   }
 
-  serialize = (value) => {
-    return this.serializer.serialize(value)
+  serialize = (value, options = {}) => {
+    return this.serializer.serialize(value, options)
   }
 
-  deserialize = (value) => {
-    return this.deserializer.deserialize(value)
+  deserialize = (value, options = {type: 'block'}) => {
+    return this.deserializer.deserialize(value, options)
   }
 }
 
