@@ -1,6 +1,6 @@
 {
   "name": "slate-bbcode-serializer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A BBCode serializer/deserializer for Slate editors.",
   "main": "lib/index.js",
   "scripts": {
@@ -26,14 +26,8 @@
     "@babel/preset-react": "^7.0.0"
   },
   "dependencies": {
-    "@babel/node": "^7.4.5",
-    "@bbob/parser": "^2.5.1",
-    "immutable": "^4.0.0-rc.12",
-    "katex": "^0.10.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "slate": "0.47.4",
-    "slate-html-serializer": "0.8.6",
+    "@bbob/parser": "^2.5.2",
+    "immutable": "^3.0.0",
     "type-of": "^2.0.1"
   }
 }
